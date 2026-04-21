@@ -6,48 +6,64 @@
 <title>Charles & Kelly</title>
 
 <style>
+
 body{
 margin:0;
 background:white;
 }
+
 img{
 width:100%;
 height:auto;
 display:block;
 }
+
+/* tela inicial de autorização */
+
+#overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-family:Georgia, serif;
+font-size:22px;
+text-align:center;
+z-index:9999;
+cursor:pointer;
+}
+
 </style>
 </head>
 
 <body>
 
-<audio id="musica" autoplay loop muted playsinline preload="auto">
+<div id="overlay">
+Toque na tela para iniciar a música 🎶
+</div>
+
+<audio id="musica" loop preload="auto">
 <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
 <img src="convite.png">
 
 <script>
-window.addEventListener("load", function () {
 
+const overlay = document.getElementById("overlay");
 const audio = document.getElementById("musica");
 
-audio.play().then(() => {
+overlay.addEventListener("click", () => {
 
-setTimeout(() => {
-audio.muted = false;
-audio.volume = 1;
-}, 400);
-
-}).catch(() => {
-
-document.addEventListener("touchstart", () => {
-audio.muted = false;
 audio.play();
-}, { once: true });
+overlay.style.display = "none";
 
 });
 
-});
 </script>
 
 </body>
