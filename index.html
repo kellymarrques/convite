@@ -13,7 +13,7 @@ margin:0;
 background:white;
 }
 
-/* tela inicial envelope */
+/* envelope inicial */
 
 #overlay{
 position:fixed;
@@ -29,34 +29,66 @@ z-index:9999;
 transition:opacity 0.8s ease;
 }
 
-/* área invisível clicável sobre a frase */
+/* área clicável do envelope */
 
 #areaClique{
-
 position:absolute;
-
-/* AJUSTE FINO DA POSIÇÃO */
 top:52%;
-
-/* centraliza horizontalmente */
 left:50%;
-
 transform:translate(-50%, -50%);
-
-/* tamanho da área clicável */
 width:280px;
 height:90px;
-
 cursor:pointer;
-
 }
 
-/* convite */
+/* container do convite */
 
-img{
+.container{
+position:relative;
+width:100%;
+}
+
+/* imagem do convite */
+
+.container img{
 width:100%;
 height:auto;
 display:block;
+}
+
+/* botões invisíveis */
+
+.btn-localizacao,
+.btn-manual,
+.btn-presentes,
+.btn-site{
+
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+
+width:260px;
+height:55px;
+
+display:block;
+}
+
+/* posições ajustadas conforme seu layout */
+
+.btn-localizacao{
+top:74.2%;
+}
+
+.btn-manual{
+top:77.4%;
+}
+
+.btn-presentes{
+top:80.6%;
+}
+
+.btn-site{
+top:83.8%;
 }
 
 </style>
@@ -65,16 +97,26 @@ display:block;
 <body>
 
 <div id="overlay">
-
 <div id="areaClique"></div>
-
 </div>
 
 <audio id="musica" loop preload="auto">
 <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
+<div class="container">
+
 <img src="convite.png">
+
+<a href="https://share.google/SNkSSHwMZ7EGleort" class="btn-localizacao"></a>
+
+<a href="https://sites.icasei.com.br/kellyecharles/places/18" class="btn-manual"></a>
+
+<a href="https://sites.icasei.com.br/kellyecharles/pages/37082940" class="btn-presentes"></a>
+
+<a href="https://sites.icasei.com.br/kellyecharles/home" class="btn-site"></a>
+
+</div>
 
 <script>
 
