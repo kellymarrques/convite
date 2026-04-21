@@ -13,7 +13,7 @@ margin:0;
 background:white;
 }
 
-/* ENVELOPE INICIAL */
+/* ENVELOPE */
 
 #overlay{
 position:fixed;
@@ -29,7 +29,7 @@ z-index:9999;
 transition:opacity 0.8s ease;
 }
 
-/* ÁREA CLICÁVEL SOBRE A FRASE DO ENVELOPE */
+/* ÁREA CLICÁVEL DO ENVELOPE */
 
 #areaClique{
 position:absolute;
@@ -46,6 +46,8 @@ cursor:pointer;
 .container{
 position:relative;
 width:100%;
+max-width:700px;
+margin:auto;
 }
 
 /* IMAGEM DO CONVITE */
@@ -56,40 +58,33 @@ height:auto;
 display:block;
 }
 
-/* BOTÕES CLICÁVEIS (RESPONSIVOS) */
+/* BOTÕES INVISÍVEIS */
 
-.btn-localizacao,
-.btn-manual,
-.btn-presentes,
-.btn-site{
-
+.btn{
 position:absolute;
 left:50%;
 transform:translateX(-50%);
-
-width:72%;
-height:4.6%;
-
-display:block;
+width:60%;
+height:3.6%;
 z-index:10;
 }
 
-/* POSIÇÕES AJUSTADAS PARA SEU LAYOUT */
+/* POSIÇÕES AJUSTADAS */
 
 .btn-localizacao{
-top:72.8%;
+top:71.9%;
 }
 
 .btn-manual{
-top:76.6%;
+top:76.3%;
 }
 
 .btn-presentes{
-top:80.4%;
+top:80.7%;
 }
 
 .btn-site{
-top:84.2%;
+top:85.1%;
 }
 
 </style>
@@ -103,25 +98,25 @@ top:84.2%;
 <div id="areaClique"></div>
 </div>
 
-<!-- MÚSICA -->
+<!-- ÁUDIO -->
 
 <audio id="musica" loop preload="auto">
 <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
-<!-- CONVITE + LINKS -->
+<!-- CONVITE -->
 
 <div class="container">
 
 <img src="convite.png">
 
-<a href="https://share.google/SNkSSHwMZ7EGleort" class="btn-localizacao"></a>
+<a target="_blank" href="https://share.google/SNkSSHwMZ7EGleort" class="btn btn-localizacao"></a>
 
-<a href="https://sites.icasei.com.br/kellyecharles/places/18" class="btn-manual"></a>
+<a target="_blank" href="https://sites.icasei.com.br/kellyecharles/places/18" class="btn btn-manual"></a>
 
-<a href="https://sites.icasei.com.br/kellyecharles/pages/37082940" class="btn-presentes"></a>
+<a target="_blank" href="https://sites.icasei.com.br/kellyecharles/pages/37082940" class="btn btn-presentes"></a>
 
-<a href="https://sites.icasei.com.br/kellyecharles/home" class="btn-site"></a>
+<a target="_blank" href="https://sites.icasei.com.br/kellyecharles/home" class="btn btn-site"></a>
 
 </div>
 
@@ -135,10 +130,10 @@ areaClique.addEventListener("click", () => {
 
 audio.play();
 
-overlay.style.opacity = "0";
+overlay.style.opacity="0";
 
 setTimeout(()=>{
-overlay.style.display = "none";
+overlay.style.display="none";
 },800);
 
 });
