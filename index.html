@@ -13,7 +13,7 @@ margin:0;
 background:white;
 }
 
-/* envelope inicial */
+/* ENVELOPE INICIAL */
 
 #overlay{
 position:fixed;
@@ -29,7 +29,7 @@ z-index:9999;
 transition:opacity 0.8s ease;
 }
 
-/* área clicável do envelope */
+/* ÁREA CLICÁVEL SOBRE A FRASE DO ENVELOPE */
 
 #areaClique{
 position:absolute;
@@ -41,14 +41,14 @@ height:90px;
 cursor:pointer;
 }
 
-/* container do convite */
+/* CONTAINER DO CONVITE */
 
 .container{
 position:relative;
 width:100%;
 }
 
-/* imagem do convite */
+/* IMAGEM DO CONVITE */
 
 .container img{
 width:100%;
@@ -56,7 +56,7 @@ height:auto;
 display:block;
 }
 
-/* botões invisíveis */
+/* BOTÕES CLICÁVEIS (RESPONSIVOS) */
 
 .btn-localizacao,
 .btn-manual,
@@ -67,28 +67,29 @@ position:absolute;
 left:50%;
 transform:translateX(-50%);
 
-width:260px;
-height:55px;
+width:72%;
+height:4.6%;
 
 display:block;
+z-index:10;
 }
 
-/* posições ajustadas conforme seu layout */
+/* POSIÇÕES AJUSTADAS PARA SEU LAYOUT */
 
 .btn-localizacao{
-top:74.2%;
+top:72.8%;
 }
 
 .btn-manual{
-top:77.4%;
+top:76.6%;
 }
 
 .btn-presentes{
-top:80.6%;
+top:80.4%;
 }
 
 .btn-site{
-top:83.8%;
+top:84.2%;
 }
 
 </style>
@@ -96,13 +97,19 @@ top:83.8%;
 
 <body>
 
+<!-- ENVELOPE -->
+
 <div id="overlay">
 <div id="areaClique"></div>
 </div>
 
+<!-- MÚSICA -->
+
 <audio id="musica" loop preload="auto">
 <source src="musica.mp3" type="audio/mpeg">
 </audio>
+
+<!-- CONVITE + LINKS -->
 
 <div class="container">
 
@@ -128,10 +135,10 @@ areaClique.addEventListener("click", () => {
 
 audio.play();
 
-overlay.style.opacity="0";
+overlay.style.opacity = "0";
 
 setTimeout(()=>{
-overlay.style.display="none";
+overlay.style.display = "none";
 },800);
 
 });
