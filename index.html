@@ -3,14 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Charles & Kelly</title>
+
+<!-- fonte Playfair Display -->
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 
 body{
 margin:0;
 background:white;
-font-family:Georgia, serif;
+font-family:"Playfair Display", serif;
 }
 
 /* tela inicial com envelope */
@@ -21,30 +26,68 @@ top:0;
 left:0;
 width:100%;
 height:100%;
+
 background:url("envelope.png") center center no-repeat;
 background-size:cover;
+
 display:flex;
 align-items:center;
 justify-content:center;
-text-align:center;
-padding:30px;
-font-size:24px;
-color:#ffffff;
-letter-spacing:0.5px;
-z-index:9999;
+
 cursor:pointer;
+z-index:9999;
+
 transition:opacity 0.8s ease;
 }
 
-/* leve sombra no texto para legibilidade */
+/* texto sobre o laço */
 
-#overlay span{
-background:rgba(0,0,0,0.25);
-padding:14px 22px;
-border-radius:6px;
+#textoEnvelope{
+
+position:absolute;
+
+/* ajuste vertical fino (posição do nó do laço) */
+top:52%;
+
+/* centraliza horizontalmente */
+left:50%;
+transform:translate(-50%, -50%);
+
+font-size:clamp(18px, 2.4vw, 26px);
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+/* efeito small caps visual */
+font-variant:small-caps;
+
+color:#3a3a3a;
+
+opacity:0;
+
+/* animação suave */
+animation:aparecer 2s ease forwards;
+
 }
 
-/* imagem do convite */
+/* animação de entrada */
+
+@keyframes aparecer{
+
+0%{
+opacity:0;
+transform:translate(-50%, -45%);
+}
+
+100%{
+opacity:1;
+transform:translate(-50%, -50%);
+}
+
+}
+
+/* convite */
 
 img{
 width:100%;
@@ -58,7 +101,11 @@ display:block;
 <body>
 
 <div id="overlay">
-<span>Descubra o que este envelope guarda para você ✉️</span>
+
+<div id="textoEnvelope">
+Há algo especial esperando por você aqui dentro
+</div>
+
 </div>
 
 <audio id="musica" loop preload="auto">
@@ -76,7 +123,7 @@ overlay.addEventListener("click", () => {
 
 audio.play();
 
-overlay.style.opacity = "0";
+overlay.style.opacity="0";
 
 setTimeout(()=>{
 overlay.style.display="none";
