@@ -6,19 +6,14 @@
 
 <title>Charles & Kelly</title>
 
-<!-- fonte Playfair Display -->
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
-
 <style>
 
 body{
 margin:0;
 background:white;
-font-family:"Playfair Display", serif;
 }
 
-/* tela inicial com envelope */
+/* tela inicial envelope */
 
 #overlay{
 position:fixed;
@@ -30,60 +25,29 @@ height:100%;
 background:url("envelope.png") center center no-repeat;
 background-size:cover;
 
-display:flex;
-align-items:center;
-justify-content:center;
-
-cursor:pointer;
 z-index:9999;
-
 transition:opacity 0.8s ease;
 }
 
-/* texto sobre o laço */
+/* área invisível clicável sobre a frase */
 
-#textoEnvelope{
+#areaClique{
 
 position:absolute;
 
-/* ajuste vertical fino (posição do nó do laço) */
+/* AJUSTE FINO DA POSIÇÃO */
 top:52%;
 
 /* centraliza horizontalmente */
 left:50%;
+
 transform:translate(-50%, -50%);
 
-font-size:clamp(18px, 2.4vw, 26px);
+/* tamanho da área clicável */
+width:280px;
+height:90px;
 
-letter-spacing:2px;
-
-text-transform:uppercase;
-
-/* efeito small caps visual */
-font-variant:small-caps;
-
-color:#3a3a3a;
-
-opacity:0;
-
-/* animação suave */
-animation:aparecer 2s ease forwards;
-
-}
-
-/* animação de entrada */
-
-@keyframes aparecer{
-
-0%{
-opacity:0;
-transform:translate(-50%, -45%);
-}
-
-100%{
-opacity:1;
-transform:translate(-50%, -50%);
-}
+cursor:pointer;
 
 }
 
@@ -102,9 +66,7 @@ display:block;
 
 <div id="overlay">
 
-<div id="textoEnvelope">
-Há algo especial esperando por você aqui dentro
-</div>
+<div id="areaClique"></div>
 
 </div>
 
@@ -116,10 +78,11 @@ Há algo especial esperando por você aqui dentro
 
 <script>
 
+const areaClique = document.getElementById("areaClique");
 const overlay = document.getElementById("overlay");
 const audio = document.getElementById("musica");
 
-overlay.addEventListener("click", () => {
+areaClique.addEventListener("click", () => {
 
 audio.play();
 
