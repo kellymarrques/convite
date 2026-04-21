@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charles & Kelly</title>
+
+<style>
+body {
+margin: 0;
+background: #ffffff;
+}
+
+img {
+width: 100%;
+height: auto;
+display: block;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="musica" autoplay loop playsinline preload="auto">
+<source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<img src="convite.png" alt="Convite Charles e Kelly">
+
+<script>
+window.addEventListener("load", function() {
+const audio = document.getElementById("musica");
+
+audio.muted = false;
+
+const playPromise = audio.play();
+
+if (playPromise !== undefined) {
+playPromise.catch(() => {
+document.body.addEventListener("touchstart", () => {
+audio.play();
+}, { once: true });
+});
+}
+});
+</script>
+
+</body>
+</html>
