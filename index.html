@@ -10,24 +10,38 @@
 body{
 margin:0;
 background:white;
+font-family:Georgia, serif;
 }
 
-/* faixa superior */
+/* tela inicial com envelope */
 
-#barraSom{
+#overlay{
 position:fixed;
 top:0;
 left:0;
 width:100%;
-background:#ffffff;
-color:#444;
+height:100%;
+background:url("envelope.png") center center no-repeat;
+background-size:cover;
+display:flex;
+align-items:center;
+justify-content:center;
 text-align:center;
-font-family:Georgia, serif;
-font-size:16px;
-padding:14px 10px;
-box-shadow:0 2px 6px rgba(0,0,0,0.08);
-cursor:pointer;
+padding:30px;
+font-size:24px;
+color:#ffffff;
+letter-spacing:0.5px;
 z-index:9999;
+cursor:pointer;
+transition:opacity 0.8s ease;
+}
+
+/* leve sombra no texto para legibilidade */
+
+#overlay span{
+background:rgba(0,0,0,0.25);
+padding:14px 22px;
+border-radius:6px;
 }
 
 /* imagem do convite */
@@ -36,7 +50,6 @@ img{
 width:100%;
 height:auto;
 display:block;
-margin-top:52px;
 }
 
 </style>
@@ -44,8 +57,8 @@ margin-top:52px;
 
 <body>
 
-<div id="barraSom">
-Dê o play na nossa história antes de continuar ✨🎶
+<div id="overlay">
+<span>Descubra o que este envelope guarda para você ✉️</span>
 </div>
 
 <audio id="musica" loop preload="auto">
@@ -56,13 +69,18 @@ Dê o play na nossa história antes de continuar ✨🎶
 
 <script>
 
-const barra = document.getElementById("barraSom");
+const overlay = document.getElementById("overlay");
 const audio = document.getElementById("musica");
 
-barra.addEventListener("click", () => {
+overlay.addEventListener("click", () => {
 
 audio.play();
-barra.style.display = "none";
+
+overlay.style.opacity = "0";
+
+setTimeout(()=>{
+overlay.style.display="none";
+},800);
 
 });
 
