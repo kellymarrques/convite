@@ -6,22 +6,21 @@
 <title>Charles & Kelly</title>
 
 <style>
-body {
-margin: 0;
-background: white;
+body{
+margin:0;
+background:white;
 }
-
-img {
-width: 100%;
-height: auto;
-display: block;
+img{
+width:100%;
+height:auto;
+display:block;
 }
 </style>
 </head>
 
 <body>
 
-<audio id="musica" autoplay loop playsinline preload="auto" muted>
+<audio id="musica" autoplay loop muted playsinline preload="auto">
 <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
@@ -33,10 +32,12 @@ window.addEventListener("load", function () {
 const audio = document.getElementById("musica");
 
 audio.play().then(() => {
+
 setTimeout(() => {
 audio.muted = false;
 audio.volume = 1;
-}, 300);
+}, 400);
+
 }).catch(() => {
 
 document.addEventListener("touchstart", () => {
